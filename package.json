@@ -1,0 +1,28 @@
+{
+  "main": "index.ts",
+  "type": "module",
+  "dependencies": {
+    "@langchain/openai": "^0.0.28",
+    "@langchain/pinecone": "^0.0.4",
+    "@pinecone-database/pinecone": "^2.2.0",
+    "axios": "^1.6.8",
+    "cheerio": "^1.0.0-rc.12",
+    "clipboardy": "^4.0.0",
+    "csv-parser": "^3.0.0",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.5",
+    "langchain": "^0.1.37",
+    "markdown-it": "^14.1.0",
+    "openai": "^4.44.0",
+    "p-queue": "^8.0.1",
+    "pdf-parse": "^1.1.1",
+    "puppeteer": "^19.11.1",
+    "textract": "^2.5.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/p-queue": "^3.2.1",
+    "@types/puppeteer": "^7.0.4",
+    "prettier": "^3.2.5"
+  }
+}
