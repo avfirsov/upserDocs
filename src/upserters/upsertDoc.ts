@@ -1,14 +1,16 @@
 import PQueue from "p-queue";
-import { upsertText } from "../utils/upsertChunks";
-import { failureWriter, getProcessed, successWriter } from "../utils/csv";
-import { extractTextFromDocumentByFilepath } from "../utils/extractTextFromDoc";
+import { upsertText } from "../utils/upsertChunks.js";
+import { failureWriter, getProcessed, successWriter } from "../utils/csv.js";
+import { extractTextFromDocumentByFilepath } from "../utils/extractTextFromDoc.js";
 import path from "path";
 import { promises as fsPromises } from "fs";
+import { __dirname } from "../../index.js";
 
 export const upsertDocument = async (
   filePath: string,
   shouldCheckIfProcessed = false,
 ): Promise<void> => {
+  console.log("=>(upsertDoc.ts:11) filePath", filePath);
   try {
     if (shouldCheckIfProcessed) {
       const processedFilePaths = await getProcessed();
@@ -17,7 +19,13 @@ export const upsertDocument = async (
       }
     }
     const text = await extractTextFromDocumentByFilepath(filePath);
+    console.log("=>(upsertDoc.ts:20) text, filePath", text, filePath);
+
     if (!text) {
+      console.error(`Failed to process ${filePath}: no text`);
+      await failureWriter.writeRecords([
+        { url: filePath, chunkInd: -1, error: "No text parsed" },
+      ]);
       return;
     }
 
@@ -55,8 +63,8 @@ export const upsertDocuments = async (dirname: string): Promise<void> => {
 
   const processedFilePaths = await getProcessed();
 
-  for (const filePath in filePaths.filter((filePath) =>
-    processedFilePaths.has(filePath),
+  for (const filePath of filePaths.filter(
+    (filePath) => !processedFilePaths.has(filePath),
   )) {
     extractionQueue.add(() => upsertDocument(filePath));
   }

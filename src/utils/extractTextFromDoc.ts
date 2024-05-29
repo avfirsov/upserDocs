@@ -4,7 +4,7 @@ import { read, utils } from "xlsx";
 import csvParse from "csv-parser";
 import textract from "textract";
 import MarkdownIt from "markdown-it";
-import { getMimeType } from "./mime";
+import { getMimeType } from "./mime.js";
 
 // Инициализация Markdown парсера
 const mdParser = new MarkdownIt();
