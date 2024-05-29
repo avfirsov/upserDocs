@@ -2,7 +2,7 @@ import { Document } from "@langchain/core/dist/documents/document.js";
 import { PineconeStore } from "@langchain/pinecone";
 import { OpenAIEmbeddings } from "@langchain/openai";
 import { Pinecone } from "@pinecone-database/pinecone";
-import { splitter } from "./splitter";
+import { splitter } from "./splitter.js";
 
 // Настройка Pinecone
 const pinecone = new Pinecone({ apiKey: process.env.PINECONE_API_KEY! });

@@ -1,8 +1,10 @@
 import "dotenv/config";
-import { upsertSitemap } from "./src/upserters/upsertSitemap";
+import { upsertDocuments } from "./src/upserters/upsertDoc.js";
+import { fileURLToPath } from "url";
+import path from "path";
 
-const SITEMAP_URL = "https://js.langchain.com/v0.1/sitemap.xml";
-const TEXT_CONTENT_SELECTOR = "article .theme-doc-markdown.markdown";
+export const __filename = fileURLToPath(import.meta.url);
+export const __dirname = path.dirname(path.dirname(__filename));
 
-// Укажите нужный sitemap.xml URL
-upsertSitemap(SITEMAP_URL, TEXT_CONTENT_SELECTOR);
+await upsertDocuments("docs/fromGmp");
+await upsertDocuments("docs/fromTg");
