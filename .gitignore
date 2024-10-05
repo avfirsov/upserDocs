@@ -1,4 +1,5 @@
 ./node_modules/
+node_modules
 ./dist/
 ./docs/
 ./failure.csv
@@ -15821,3 +15822,10 @@
 /docs/fromGmp/xnadnjnz2152oy8s2i8vkp9w5fi15gdy.pdf
 /failure.csv
 /success.csv
+/node_modules/text-from-document/dist/index.d.ts
+/node_modules/text-from-document/dist/index.js
+/node_modules/text-from-document/package.json
+/node_modules/text-from-document/Readme.md
+/node_modules/text-from-document/tsconfig.json
+/node_modules/text-from-document/dist/utils.d.ts
+/node_modules/text-from-document/dist/utils.js
