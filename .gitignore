@@ -3,7 +3,9 @@
 ./docs/
 ./failure.csv
 ./success.csv
+.codebuddy
 .env
+.idea
 /node_modules/.bin/browsers
 /node_modules/.bin/browsers.cmd
 /node_modules/.bin/browsers.ps1
