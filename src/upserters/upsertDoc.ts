@@ -1,10 +1,10 @@
 import PQueue from "p-queue";
 import { upsertText } from "../utils/upsertChunks.js";
 import { failureWriter, getProcessed, successWriter } from "../utils/csv.js";
-import { extractTextFromDocumentByFilepath } from "../utils/extractTextFromDoc.js";
 import path from "path";
 import { promises as fsPromises } from "fs";
 import { __dirname } from "../../index.js";
+import { fromFile } from "text-from-document";
 
 export const upsertDocument = async (
   filePath: string,
@@ -18,7 +18,7 @@ export const upsertDocument = async (
         return;
       }
     }
-    const text = await extractTextFromDocumentByFilepath(filePath);
+    const text = await fromFile(filePath);
     console.log("=>(upsertDoc.ts:20) text, filePath", text, filePath);
 
     if (!text) {

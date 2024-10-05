@@ -17,6 +17,7 @@
     "p-queue": "^8.0.1",
     "pdf-parse": "^1.1.1",
     "puppeteer": "^19.11.1",
+    "text-from-document": "^1.0.1",
     "textract": "^2.5.0",
     "xlsx": "^0.18.5"
   },

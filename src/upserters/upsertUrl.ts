@@ -1,13 +1,8 @@
 // Извлечение текста из HTML с помощью Puppeteer
-import axios from "axios/index";
+import axios from "axios";
 import { load } from "cheerio";
-import { upsertText } from "../utils/upsertChunks";
-import {
-  failureWriter,
-  getProcessed,
-  readUrlsFromCsv,
-  successWriter,
-} from "../utils/csv";
+import { upsertText } from "../utils/upsertChunks.js";
+import { failureWriter, getProcessed, successWriter } from "../utils/csv.js";
 import PQueue from "p-queue";
 
 //default text extractor by selector
